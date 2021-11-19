@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.androiddevchallenge.week3.emea
+package com.androiddevchallenge.week3.emea.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
