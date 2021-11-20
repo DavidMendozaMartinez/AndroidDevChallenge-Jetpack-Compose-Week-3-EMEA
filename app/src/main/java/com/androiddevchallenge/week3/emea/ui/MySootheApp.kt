@@ -15,14 +15,10 @@
  */
 package com.androiddevchallenge.week3.emea.ui
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
-class MainActivity : ComponentActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent { MySootheApp() }
-    }
+@Composable
+fun MySootheApp() {
+    MySootheTheme {}
 }
