@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.androiddevchallenge.week3.emea"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -64,16 +64,16 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0-alpha01'
-    implementation 'androidx.appcompat:appcompat:1.4.0-alpha03'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.google.accompanist:accompanist-systemuicontroller:0.20.2'
-    implementation 'androidx.activity:activity-compose:1.3.0-rc02'
+    implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
 
     testImplementation 'junit:junit:4.13.2'
 
