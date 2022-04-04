@@ -18,6 +18,7 @@ package com.androiddevchallenge.week3.emea.ui
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.compose.rememberNavController
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -25,6 +26,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun MySootheApp() {
     MySootheTheme {
         val systemUiController = rememberSystemUiController()
+        val navController = rememberNavController()
         val useDarkIcons = MaterialTheme.colors.isLight
 
         // Update all of the system bar colors to be transparent, and use
@@ -33,5 +35,7 @@ fun MySootheApp() {
             color = Color.Transparent,
             darkIcons = useDarkIcons
         )
+
+        NavGraph(navController = navController)
     }
 }
