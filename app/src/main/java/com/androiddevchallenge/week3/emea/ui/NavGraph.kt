@@ -20,6 +20,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.androiddevchallenge.week3.emea.ui.screen.welcome.Welcome
 
 /**
  * Destinations used in the [MySootheApp].
@@ -39,7 +40,7 @@ fun NavGraph(
         navController = navController,
         startDestination = startDestination
     ) {
-        composable(Destinations.WELCOME.route) {}
+        composable(Destinations.WELCOME.route) { Welcome() }
         composable(Destinations.LOG_IN.route) {}
         composable(Destinations.MAIN.route) {}
     }
