@@ -15,8 +15,21 @@
  */
 package com.androiddevchallenge.week3.emea.ui.screen.login
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
 @Composable
 fun LogIn() {
+}
+
+@Preview(name = "Light Theme", widthDp = 360, heightDp = 640, uiMode = UI_MODE_NIGHT_NO)
+@Preview(name = "Dark Theme", widthDp = 360, heightDp = 640, uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun LogInPreview() {
+    MySootheTheme {
+        LogIn()
+    }
 }
