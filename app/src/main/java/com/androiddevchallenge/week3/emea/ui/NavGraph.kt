@@ -21,6 +21,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.androiddevchallenge.week3.emea.ui.screen.login.LogIn
+import com.androiddevchallenge.week3.emea.ui.screen.main.Main
 import com.androiddevchallenge.week3.emea.ui.screen.welcome.Welcome
 
 /**
@@ -53,6 +54,6 @@ fun NavGraph(
                 onSignUpClicked = {},
             )
         }
-        composable(Destinations.MAIN.route) {}
+        composable(Destinations.MAIN.route) { Main() }
     }
 }
