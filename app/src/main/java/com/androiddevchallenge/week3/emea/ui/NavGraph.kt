@@ -54,6 +54,10 @@ fun NavGraph(
                 onSignUpClicked = {},
             )
         }
-        composable(Destinations.MAIN.route) { Main() }
+        composable(Destinations.MAIN.route) {
+            Main(
+                onPlayClicked = {}
+            )
+        }
     }
 }
