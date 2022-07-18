@@ -24,4 +24,9 @@
     <string name="main_label_home">Home</string>
     <string name="main_label_profile">Profile</string>
     <string name="main_button_play_content_description">Play</string>
+
+    <string name="home_label_search">Search</string>
+    <string name="home_title_favorite">Favorite collections</string>
+    <string name="home_title_body">Align your body</string>
+    <string name="home_title_mind">Align your mind</string>
 </resources>
