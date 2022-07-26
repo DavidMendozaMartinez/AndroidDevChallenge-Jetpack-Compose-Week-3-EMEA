@@ -43,7 +43,10 @@ import com.androiddevchallenge.week3.emea.R
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
 @Composable
-fun Welcome() {
+fun Welcome(
+    onSignUpClicked: () -> Unit = {},
+    onLogInClicked: () -> Unit = {}
+) {
     Box(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
         Image(
             painter = painterResource(id = R.drawable.bg_welcome),
@@ -67,7 +70,7 @@ fun Welcome() {
             Spacer(modifier = Modifier.height(32.dp))
 
             Button(
-                onClick = {},
+                onClick = onSignUpClicked,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(72.dp),
@@ -86,7 +89,7 @@ fun Welcome() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Button(
-                onClick = {},
+                onClick = onLogInClicked,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(72.dp),
