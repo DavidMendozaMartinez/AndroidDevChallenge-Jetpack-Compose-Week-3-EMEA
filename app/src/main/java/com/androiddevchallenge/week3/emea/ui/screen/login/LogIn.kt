@@ -56,7 +56,10 @@ import com.androiddevchallenge.week3.emea.R
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
 @Composable
-fun LogIn() {
+fun LogIn(
+    onLogInClicked: (email: String, password: String) -> Unit = { _, _ -> },
+    onSignUpClicked: () -> Unit = {}
+) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -125,7 +128,7 @@ fun LogIn() {
             Spacer(modifier = Modifier.height(8.dp))
 
             Button(
-                onClick = {},
+                onClick = { onLogInClicked(email, password) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(72.dp),
@@ -160,7 +163,7 @@ fun LogIn() {
             ) { offset ->
                 annotatedText.getStringAnnotations(start = offset, end = offset).firstOrNull()?.let { annotation ->
                     when (annotation.tag) {
-                        signUp -> {}
+                        signUp -> onSignUpClicked()
                     }
                 }
             }
