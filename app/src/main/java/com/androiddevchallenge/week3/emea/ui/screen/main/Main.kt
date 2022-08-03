@@ -15,8 +15,20 @@
  */
 package com.androiddevchallenge.week3.emea.ui.screen.main
 
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
 @Composable
 fun Main() {
+}
+
+@Preview(name = "Light Theme", widthDp = 360, heightDp = 640, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "Dark Theme", widthDp = 360, heightDp = 640, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun MainPreview() {
+    MySootheTheme {
+        Main()
+    }
 }
