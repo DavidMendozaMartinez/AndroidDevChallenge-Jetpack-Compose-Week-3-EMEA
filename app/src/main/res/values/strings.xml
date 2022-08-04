@@ -20,4 +20,8 @@
     <string name="log_in_button_log_in">Log in</string>
     <string name="log_in_account">Don\'t have an account? Sign up</string>
     <string name="log_in_account_sign_up">Sign up</string>
+
+    <string name="main_label_home">Home</string>
+    <string name="main_label_profile">Profile</string>
+    <string name="main_button_play_content_description">Play</string>
 </resources>
