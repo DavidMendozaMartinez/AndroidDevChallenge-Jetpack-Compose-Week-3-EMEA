@@ -16,12 +16,94 @@
 package com.androiddevchallenge.week3.emea.ui.screen.main
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.FabPosition
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.androiddevchallenge.week3.emea.R
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
+import com.google.accompanist.insets.ProvideWindowInsets
+import com.google.accompanist.insets.navigationBarsPadding
 
 @Composable
 fun Main() {
+    val navController = rememberNavController()
+
+    ProvideWindowInsets {
+        Box(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
+            Scaffold(
+                modifier = Modifier.navigationBarsPadding(),
+                bottomBar = { MainBottomNavigation(navController = navController) },
+                floatingActionButton = { PlayButton(onClick = {}) },
+                floatingActionButtonPosition = FabPosition.Center,
+                isFloatingActionButtonDocked = true
+            ) {}
+        }
+    }
+}
+
+@Composable
+fun MainBottomNavigation(navController: NavHostController) {
+    BottomNavigation(backgroundColor = MaterialTheme.colors.background) {
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val currentDestination = navBackStackEntry?.destination
+        val items = MainDestinations.values()
+
+        items.forEach { item ->
+            BottomNavigationItem(
+                selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                onClick = {},
+                icon = {
+                    Icon(
+                        imageVector = item.icon,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = stringResource(item.label).uppercase(),
+                        style = MaterialTheme.typography.caption
+                    )
+                },
+                selectedContentColor = MaterialTheme.colors.onBackground
+            )
+        }
+    }
+}
+
+@Composable
+fun PlayButton(onClick: () -> Unit = {}) {
+    FloatingActionButton(
+        onClick = onClick,
+        backgroundColor = MaterialTheme.colors.primary
+    ) {
+        Icon(
+            imageVector = Icons.Filled.PlayArrow,
+            contentDescription = stringResource(R.string.main_button_play_content_description),
+            modifier = Modifier.size(24.dp),
+            tint = MaterialTheme.colors.onPrimary
+        )
+    }
 }
 
 @Preview(name = "Light Theme", widthDp = 360, heightDp = 640, uiMode = Configuration.UI_MODE_NIGHT_NO)
