@@ -18,6 +18,7 @@ package com.androiddevchallenge.week3.emea.ui.screen.main
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -36,6 +37,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -56,7 +58,12 @@ fun Main() {
                 floatingActionButton = { PlayButton(onClick = {}) },
                 floatingActionButtonPosition = FabPosition.Center,
                 isFloatingActionButtonDocked = true
-            ) {}
+            ) { innerPadding ->
+                MainNavGraph(
+                    modifier = Modifier.padding(innerPadding),
+                    navController = navController
+                )
+            }
         }
     }
 }
@@ -71,7 +78,13 @@ fun MainBottomNavigation(navController: NavHostController) {
         items.forEach { item ->
             BottomNavigationItem(
                 selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
-                onClick = {},
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                },
                 icon = {
                     Icon(
                         imageVector = item.icon,

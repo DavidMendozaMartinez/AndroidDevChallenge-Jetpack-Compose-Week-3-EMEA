@@ -19,7 +19,13 @@ import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Spa
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.androiddevchallenge.week3.emea.R
 
 /**
@@ -28,4 +34,20 @@ import com.androiddevchallenge.week3.emea.R
 enum class MainDestinations(@StringRes val label: Int, val icon: ImageVector, val route: String) {
     HOME(R.string.main_label_home, Icons.Filled.Spa, "main/home"),
     PROFILE(R.string.main_label_profile, Icons.Filled.AccountCircle, "main/profile")
+}
+
+@Composable
+fun MainNavGraph(
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = MainDestinations.HOME.route
+) {
+    NavHost(
+        navController = navController,
+        startDestination = startDestination,
+        modifier = modifier
+    ) {
+        composable(MainDestinations.HOME.route) {}
+        composable(MainDestinations.PROFILE.route) {}
+    }
 }
