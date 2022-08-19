@@ -47,7 +47,7 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.navigationBarsPadding
 
 @Composable
-fun Main() {
+fun Main(onPlayClicked: () -> Unit = {}) {
     val navController = rememberNavController()
 
     ProvideWindowInsets {
@@ -55,7 +55,7 @@ fun Main() {
             Scaffold(
                 modifier = Modifier.navigationBarsPadding(),
                 bottomBar = { MainBottomNavigation(navController = navController) },
-                floatingActionButton = { PlayButton(onClick = {}) },
+                floatingActionButton = { PlayButton(onClick = onPlayClicked) },
                 floatingActionButtonPosition = FabPosition.Center,
                 isFloatingActionButtonDocked = true
             ) { innerPadding ->
