@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.androiddevchallenge.week3.emea.R
+import com.androiddevchallenge.week3.emea.ui.screen.main.home.Home
 
 /**
  * Destinations used in the [Main] screen.
@@ -47,7 +48,7 @@ fun MainNavGraph(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(MainDestinations.HOME.route) {}
+        composable(MainDestinations.HOME.route) { Home() }
         composable(MainDestinations.PROFILE.route) {}
     }
 }
