@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.androiddevchallenge.week3.emea"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -52,30 +52,29 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion "1.2.0"
+    }
+    packagingOptions {
+        resources {
+            excludes += ['/META-INF/AL2.0', '/META-INF/LGPL2.1']
+        }
     }
 
-    packagingOptions {
-        // Multiple dependency bring these files in. Exclude them to enable
-        // our test APK to build (has no effect on our AARs)
-        excludes += "/META-INF/AL2.0"
-        excludes += "/META-INF/LGPL2.1"
-    }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.google.accompanist:accompanist-insets:0.20.2'
-    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.20.2'
-    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.accompanist:accompanist-insets:0.25.1'
+    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.25.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
-    implementation 'androidx.navigation:navigation-compose:2.4.0-beta02'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-compose:2.5.1'
 
     testImplementation 'junit:junit:4.13.2'
 
