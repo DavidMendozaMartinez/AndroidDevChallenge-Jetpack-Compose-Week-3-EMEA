@@ -69,7 +69,10 @@ import com.androiddevchallenge.week3.emea.model.Exercise
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
 
 @Composable
-fun Home() {
+fun Home(
+    onCollectionClicked: (Collection) -> Unit = {},
+    onExerciseClicked: (Exercise) -> Unit = {}
+) {
     var query by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
@@ -131,7 +134,7 @@ fun Home() {
                 ) {
                     CollectionItem(
                         collection = it,
-                        onCollectionClicked = {}
+                        onCollectionClicked = onCollectionClicked
                     )
                 }
             }
@@ -155,7 +158,7 @@ fun Home() {
                 ) {
                     ExerciseItem(
                         exercise = it,
-                        onExerciseClicked = {}
+                        onExerciseClicked = onExerciseClicked
                     )
                 }
             }
@@ -179,7 +182,7 @@ fun Home() {
                 ) {
                     ExerciseItem(
                         exercise = it,
-                        onExerciseClicked = {}
+                        onExerciseClicked = onExerciseClicked
                     )
                 }
             }

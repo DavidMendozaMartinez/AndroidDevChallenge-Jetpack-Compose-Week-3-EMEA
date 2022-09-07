@@ -48,7 +48,12 @@ fun MainNavGraph(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(MainDestinations.HOME.route) { Home() }
+        composable(MainDestinations.HOME.route) {
+            Home(
+                onCollectionClicked = {},
+                onExerciseClicked = {}
+            )
+        }
         composable(MainDestinations.PROFILE.route) {}
     }
 }
