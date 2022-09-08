@@ -18,6 +18,7 @@ package com.androiddevchallenge.week3.emea.ui.screen.main
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
@@ -43,27 +44,23 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.androiddevchallenge.week3.emea.R
 import com.androiddevchallenge.week3.emea.ui.theme.MySootheTheme
-import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.insets.navigationBarsPadding
 
 @Composable
 fun Main(onPlayClicked: () -> Unit = {}) {
     val navController = rememberNavController()
 
-    ProvideWindowInsets {
-        Box(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
-            Scaffold(
-                modifier = Modifier.navigationBarsPadding(),
-                bottomBar = { MainBottomNavigation(navController = navController) },
-                floatingActionButton = { PlayButton(onClick = onPlayClicked) },
-                floatingActionButtonPosition = FabPosition.Center,
-                isFloatingActionButtonDocked = true
-            ) { innerPadding ->
-                MainNavGraph(
-                    modifier = Modifier.padding(innerPadding),
-                    navController = navController
-                )
-            }
+    Box(modifier = Modifier.background(color = MaterialTheme.colors.background)) {
+        Scaffold(
+            modifier = Modifier.navigationBarsPadding(),
+            bottomBar = { MainBottomNavigation(navController = navController) },
+            floatingActionButton = { PlayButton(onClick = onPlayClicked) },
+            floatingActionButtonPosition = FabPosition.Center,
+            isFloatingActionButtonDocked = true
+        ) { innerPadding ->
+            MainNavGraph(
+                modifier = Modifier.padding(innerPadding),
+                navController = navController
+            )
         }
     }
 }
